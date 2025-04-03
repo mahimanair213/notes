@@ -1021,4 +1021,430 @@ shiporder.xml
     </item>
 </shiporder>
 
+assignment 4
+employee_search.php
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $searchEmployee = trim($_POST["searchEmployee"]);
+    $searchType = $_POST["searchType"];
+
+    // Indexed array of employee names
+    $employees = ["Arya Mohite", "Saniya Maniyar", "Mane Kiran", "Mukta Mahamuni", "Emma Wilson",
+                  "Frank Miller", "Grace Harris", "Henry Adams", "Ivy Clark", "Jack Lewis",
+                  "Kelly Young", "Liam Turner", "Mia Scott", "Noah Walker", "Olivia Carter",
+                  "Paul Allen", "Quinn Moore", "Rachel King", "Samuel Green", "Tina Hall"];
+
+    // Associative array (Employee Name => Department)
+    $employeeDepartments = [
+        "Arya Mohite" => "HR",
+        "Saniya Maniyar" => "IT",
+        "Mane Kiran" => "Finance",
+        "Mukta Mahamuni" => "Marketing",
+        "Emma Wilson" => "Operations",
+        "Frank Miller" => "Sales",
+        "Grace Harris" => "IT",
+        "Henry Adams" => "HR",
+        "Ivy Clark" => "Finance",
+        "Jack Lewis" => "Engineering"
+    ];
+
+    // Multidimensional array (Employee Details)
+    $employeeDetails = [
+        ["id" => 101, "name" => "Arya Mohite", "department" => "HR"],
+        ["id" => 102, "name" => "Saniya Maniyar", "department" => "IT"],
+        ["id" => 103, "name" => "Mane Kiran", "department" => "Finance"],
+        ["id" => 104, "name" => "Mukta Mahamuni", "department" => "Marketing"],
+        ["id" => 105, "name" => "Emma Wilson", "department" => "Operations"]
+    ];
+
+    $message = ""; // To store the output message
+
+    // Switch case for different search types
+    switch ($searchType) {
+        case "indexed":
+            if (in_array($searchEmployee, $employees)) {
+                $message = "<p style='color:green;'>$searchEmployee is found in the employee list!</p>";
+            } else {
+                $message = "<p style='color:red;'>$searchEmployee is not found in the employee list.</p>";
+            }
+            break;
+
+        case "associative":
+            if (array_key_exists($searchEmployee, $employeeDepartments)) {
+                $department = $employeeDepartments[$searchEmployee];
+                $message = "<p style='color:blue;'>$searchEmployee works in the $department department.</p>";
+            } else {
+                $message = "<p style='color:red;'>$searchEmployee is not found in the department list.</p>";
+            }
+            break;
+
+        case "multidimensional":
+            $found = false;
+            foreach ($employeeDetails as $employee) {
+                if ($employee["name"] === $searchEmployee) {
+                    $message = "<p style='color:purple;'>Employee ID: {$employee['id']}<br>
+                                Name: {$employee['name']}<br>
+                                Department: {$employee['department']}</p>";
+                    $found = true;
+                    break;
+                }
+            }
+            if (!$found) {
+                $message = "<p style='color:red;'>$searchEmployee is not found in the detailed records.</p>";
+            }
+            break;
+
+        default:
+            $message = "<p style='color:red;'>Invalid search type selected.</p>";
+    }
+
+    // Display the search result
+    echo "<h2>Search Results</h2>";
+    echo $message;
+    echo '<br><a href="employee.html">Go Back</a>';
+}
+?>
+
+employee.html
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Search</title>
+</head>
+<body>
+    <h2>Search for an Employee</h2>
+    <form action="employee_search.php" method="POST">
+        <input type="text" name="searchEmployee" placeholder="Enter employee name" required>
+        <select name="searchType">
+            <option value="indexed">Search in Indexed Array</option>
+            <option value="associative">Search in Associative Array</option>
+            <option value="multidimensional">Search in Multidimensional Array</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>
+
+
+
+
+assignment 5 
+asignn5.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: auto;
+        }
+        .shape-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .shape-options input[type="radio"] {
+            display: none;
+        }
+        .shape-options label {
+            font-size: 18px;
+            background: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .shape-options input[type="radio"]:checked + label {
+            background: #007bff;
+            color: white;
+        }
+        .shape-options label:hover {
+            background: #ddd;
+        }
+        .inputs {
+            display: none;
+            margin-top: 20px;
+        }
+        .inputs table {
+            margin: 0 auto;
+        }
+        .inputs input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        #trianglePreview, #squarePreview, #circlePreview {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            width: 300px;
+            margin: 20px auto;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function showParameters() {
+            var shape = document.querySelector('input[name="shape"]:checked').value;
+            var triangleInputs = document.getElementById('triangleInputs');
+            var squareInputs = document.getElementById('squareInputs');
+            var circleInputs = document.getElementById('circleInputs');
+            var trianglePreview = document.getElementById('trianglePreview');
+            var squarePreview = document.getElementById('squarePreview');
+            var circlePreview = document.getElementById('circlePreview');
+
+            // Hide all input sections and previews
+            triangleInputs.style.display = 'none';
+            squareInputs.style.display = 'none';
+            circleInputs.style.display = 'none';
+            trianglePreview.style.display = 'none';
+            squarePreview.style.display = 'none';
+            circlePreview.style.display = 'none';
+
+            // Display the inputs and preview based on the selected shape
+            if (shape == 'triangle') {
+                triangleInputs.style.display = 'block';
+                trianglePreview.style.display = 'block';
+            } else if (shape == 'square') {
+                squareInputs.style.display = 'block';
+                squarePreview.style.display = 'block';
+            } else if (shape == 'circle') {
+                circleInputs.style.display = 'block';
+                circlePreview.style.display = 'block';
+            }
+
+            // Set the hidden input to the selected shape
+            document.getElementById('shapeSelected').value = shape;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Shape Area and Perimeter Calculator</h2>
+
+        <div class="shape-options">
+            <input type="radio" name="shape" value="triangle" onclick="showParameters()" id="triangle">
+            <label for="triangle">Triangle</label>
+
+            <input type="radio" name="shape" value="square" onclick="showParameters()" id="square">
+            <label for="square">Square</label>
+
+            <input type="radio" name="shape" value="circle" onclick="showParameters()" id="circle">
+            <label for="circle">Circle</label>
+        </div>
+        
+        <form action="asignn5.php" method="GET">
+            <!-- Hidden input to send shape -->
+            <input type="hidden" name="shape" id="shapeSelected" value="">
+
+            <div id="triangleInputs" class="inputs">
+                <h3>Enter Base and Height</h3>
+                <table>
+                    <tr>
+                        <td>Base:</td>
+                        <td><input type="text" name="base"></td>
+                    </tr>
+                    <tr>
+                        <td>Height:</td>
+                        <td><input type="text" name="height"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="squareInputs" class="inputs">
+                <h3>Enter Side Length</h3>
+                <table>
+                    <tr>
+                        <td>Side:</td>
+                        <td><input type="text" name="side"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="circleInputs" class="inputs">
+                <h3>Enter Radius</h3>
+                <table>
+                    <tr>
+                        <td>Radius:</td>
+                        <td><input type="text" name="radius"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="trianglePreview">
+                <h4>Triangle Preview</h4>
+                <svg width="100" height="100">
+                    <polygon points="50,10 10,90 90,90" style="fill: lightblue; stroke: black; stroke-width: 2" />
+                </svg>
+            </div>
+
+            <div id="squarePreview">
+                <h4>Square Preview</h4>
+                <svg width="100" height="100">
+                    <rect x="10" y="10" width="80" height="80" style="fill: lightgreen; stroke: black; stroke-width: 2" />
+                </svg>
+            </div>
+
+            <div id="circlePreview">
+                <h4>Circle Preview</h4>
+                <svg width="100" height="100">
+                    <circle cx="50" cy="50" r="40" style="fill: lightcoral; stroke: black; stroke-width: 2" />
+                </svg>
+            </div>
+
+            <br><br>
+            <input type="submit" value="Calculate" class="button">
+        </form>
+    </div>
+</body>
+</html>
+
+asignn5.php
+
+<?php
+define('PI', 3.14);
+
+interface Shape
+{
+    function calc_area($r, $h);
+    function calc_perimeter($r, $h);
+}
+
+class Triangle implements Shape
+{
+    function calc_area($r, $h) // In this case, r = base, h = height
+    {
+        return 0.5 * $r * $h;  // Area = 1/2 * base * height
+    }
+
+    function calc_perimeter($r, $h)  // Perimeter calculation is just an example, assuming it as an equilateral triangle.
+    {
+        return 3 * $r;  // If we treat the input as the length of all 3 sides of an equilateral triangle.
+    }
+}
+
+class Square implements Shape
+{
+    function calc_area($r, $h) // In this case, r = side
+    {
+        return $r * $r;  // Area = side^2
+    }
+
+    function calc_perimeter($r, $h)  // Perimeter of a square = 4 * side
+    {
+        return 4 * $r;
+    }
+}
+
+class Circle implements Shape
+{
+    function calc_area($r, $h) // In this case, r = radius
+    {
+        return PI * $r * $r;  // Area = π * radius^2
+    }
+
+    function calc_perimeter($r, $h)  // Circumference of circle = 2 * π * radius
+    {
+        return 2 * PI * $r;
+    }
+}
+
+// Get the selected shape operation
+$shape = isset($_GET['shape']) ? $_GET['shape'] : null;
+
+if ($shape) {
+    // Check and sanitize inputs
+    switch ($shape) {
+        case 'triangle': // Triangle
+            $base = isset($_GET['base']) ? (float)$_GET['base'] : 0;
+            $height = isset($_GET['height']) ? (float)$_GET['height'] : 0;
+
+            // Validate inputs
+            if ($base <= 0 || $height <= 0) {
+                echo "Please enter valid positive values for base and height.";
+            } else {
+                $ob = new Triangle();
+                $area = $ob->calc_area($base, $height);
+                $perimeter = $ob->calc_perimeter($base, $height);
+                echo "Area of Triangle is: " . $area . "<br>";
+                echo "Perimeter of Triangle is: " . $perimeter;
+            }
+            break;
+
+        case 'square': // Square
+            $side = isset($_GET['side']) ? (float)$_GET['side'] : 0;
+
+            // Validate input
+            if ($side <= 0) {
+                echo "Please enter a valid positive value for side.";
+            } else {
+                $ob = new Square();
+                $area = $ob->calc_area($side, 0);  // Height is not used for square
+                $perimeter = $ob->calc_perimeter($side, 0);
+                echo "Area of Square is: " . $area . "<br>";
+                echo "Perimeter of Square is: " . $perimeter;
+            }
+            break;
+
+        case 'circle': // Circle
+            $radius = isset($_GET['radius']) ? (float)$_GET['radius'] : 0;
+
+            // Validate input
+            if ($radius <= 0) {
+                echo "Please enter a valid positive value for radius.";
+            } else {
+                $ob = new Circle();
+                $area = $ob->calc_area($radius, 0);  // Height is not used for circle
+                $perimeter = $ob->calc_perimeter($radius, 0);
+                echo "Area of Circle is: " . $area . "<br>";
+                echo "Circumference of Circle is: " . $perimeter;
+            }
+            break;
+
+        default:
+            echo "Invalid shape selected.";
+    }
+} else {
+    echo "No shape selected. Please select a shape to calculate.";
+}
+?>
+
+
+assignment 6 
