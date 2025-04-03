@@ -1448,3 +1448,389 @@ if ($shape) {
 
 
 assignment 6 
+index.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftify - Customer Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Customer Registration</h2>
+        <form action="submit.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            <button type="submit">Register</button>
+        </form>
+        <a href="customers.php" class="view-btn">View Registered Customers</a>
+    </div>
+</body>
+</html>
+
+db.php
+
+<?php
+$servername = "localhost";
+$username = "root"; // Default XAMPP user
+$password = ""; // Default XAMPP password is empty
+$database = "giftify"; // Your database name
+
+// Create Connection
+$conn = new mysqli($servername, $username, $password, $database);
+// Check Connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
+customers.php
+
+<?php
+include 'db.php';
+$sql = "SELECT * FROM customer";
+$result = $conn->query($sql);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Customers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registered Customers</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                    <td>{$row['userid']}</td>
+                    <td>{$row['name']}</td>
+                    <td>{$row['email']}</td>
+                    <td>{$row['phone']}</td>
+                    <td>{$row['address']}</td>
+                    </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='5'>No customers registered yet.</td></tr>";
+            }
+            ?>
+        </table>
+        <a href="index.html" class="view-btn">Go Back</a>
+    </div>
+</body>
+</html>
+<?php $conn->close(); ?>
+
+
+submit.php
+
+<?php
+include 'db.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $sql = "INSERT INTO customer (name, email, phone, address) VALUES ('$name', '$email', '$phone', '$address')";
+    if ($conn->query($sql) === TRUE) {
+        header("Location: success.html");
+        exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+$conn->close();
+?>
+
+success.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Successful!</h2>
+        <p>Thank you for registering.</p>
+        <a href="index.html" class="view-btn">Register Another Customer</a>
+        <a href="customers.php" class="view-btn">View Registered Customers</a>
+    </div>
+</body>
+</html>
+
+
+ 
+
+assignment 7
+
+conn.php
+ <?php
+    $conn = mysqli_connect("localhost","root","","cookie");
+     
+    // Check connection
+    if (mysqli_connect_errno())
+      {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      }
+    ?>
+
+index.php
+<?php
+    	session_start();
+    	include('conn.php');
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Login Using Cookie with Logout</title>
+    </head>
+    <body>
+    	<h2>Login Form</h2>
+    	<form method="POST" action="login.php">
+    	<label>Username:</label> <input type="text" value="<?php if (isset($_COOKIE["user"])){echo $_COOKIE["user"];}?>" name="username">
+    	<label>Password:</label> <input type="password" value="<?php if (isset($_COOKIE["pass"])){echo $_COOKIE["pass"];}?>" name="password"><br><br>
+    	<input type="checkbox" name="remember" <?php if (isset($_COOKIE["user"]) && isset($_COOKIE["pass"])){ echo "checked";}?>> Remember me <br><br>
+    	<input type="submit" value="Login" name="login">
+    	</form>
+     
+    	<span>
+    	<?php
+    		if (isset($_SESSION['message'])){
+    			echo $_SESSION['message'];
+    		}
+    		unset($_SESSION['message']);
+    	?>
+    </span>
+    </body>
+    </html>
+
+login.php
+
+  <?php
+    	if(isset($_POST['login'])){
+     
+    		session_start();
+    		include('conn.php');
+     
+    		$username=$_POST['username'];
+    		$password=$_POST['password'];
+     
+    		$query=mysqli_query($conn,"select * from `user` where username='$username' && password='$password'");
+     
+    		if (mysqli_num_rows($query) == 0){
+    			$_SESSION['message']="Login Failed. User not Found!";
+    			header('location:index.php');
+    		}
+    		else{
+    			$row=mysqli_fetch_array($query);
+     
+    			if (isset($_POST['remember'])){
+    				//set up cookie
+    				setcookie("user", $row['username'], time() + (86400 * 30)); 
+    				setcookie("pass", $row['password'], time() + (86400 * 30)); 
+    			}
+     
+    			$_SESSION['id']=$row['userid'];
+    			header('location:success.php');
+    		}
+    	}
+    	else{
+    		header('location:index.php');
+    		$_SESSION['message']="Please Login!";
+    	}
+    ?>
+
+logout.php
+
+    <?php
+    	session_start();
+    	session_destroy();
+     
+    	if (isset($_COOKIE["user"]) AND isset($_COOKIE["pass"])){
+    		setcookie("user", '', time() - (3600));
+    		setcookie("pass", '', time() - (3600));
+    	}
+     
+    	header('location:index.php');
+     
+    ?>
+
+success.php
+
+ <?php
+    	session_start();
+     
+    	if (!isset($_SESSION['id']) ||(trim ($_SESSION['id']) == '')) {
+    		header('index.php');
+    		exit();
+    	}
+    	include('conn.php');
+    	$query=mysqli_query($conn,"select * from user where userid='".$_SESSION['id']."'");
+    	$row=mysqli_fetch_assoc($query);
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Setting Up Cookie on User Login</title>
+    </head>
+    <body>
+    	<h2>Login Success</h2>
+    	<?php echo $row['fullname']; ?>
+    	<br>
+    	<a  href="logout.php">Logout</a>
+    </body>
+    </html>
+
+
+assignment 8
+
+reverse.erb
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reversed Name</title>
+</head>
+<body>
+    <h1>Reversed Name</h1>
+    <p><%= @reversed_name %></p>
+</body>
+</html>
+
+
+index.erb
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Name</title>
+</head>
+<body>
+    <h1>Reverse Name</h1>
+    <form action="/reverse" method="POST">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br>
+        <button type="submit">Reverse Name</button>
+    </form>
+</body>
+</html>
+
+
+app.rb
+require 'sinatra'
+
+# Method to reverse the name
+def reverse_name(first_name, last_name)
+  "#{last_name} #{first_name}"
+end
+
+get '/' do
+  erb :index
+end
+
+post '/reverse' do
+  first_name = params[:first_name]
+  last_name = params[:last_name]
+  @reversed_name = reverse_name(first_name, last_name)
+  erb :reverse
+end
+
+gem install sinatra
+
+Save the above files:
+
+app.rb for the Ruby Sinatra application.
+
+index.erb for the input form where users enter their names.
+
+reverse.erb to display the reversed name.
+
+Run the Sinatra app with:
+
+nginx
+Copy
+ruby app.rb
+Visit http://localhost:4567 in your browser to test the application.
+
+assignment 9
+require &#39;mail&#39;
+# Set up SMTP settings
+Mail.defaults do
+delivery_method :smtp, {
+:address =&gt; &#39;smtp.gmail.com&#39;,
+:port =&gt; 587,
+:user_name =&gt; &#39;saniyamaniyar265@gmail.com&#39;,
+:password =&gt; &#39;mhuq zinf dygq znts&#39;,
+:authentication =&gt; :login,
+:enable_starttls_auto =&gt; true
+}
+end
+# Define email message
+message = Mail.new do
+from &#39;saniyamaniyar265@gmail.com&#39;
+to &#39;aishmarathe04@gmail.com&#39;
+subject &#39;Hello from Ruby!&#39;
+body &#39;This is a test email sent from Ruby.&#39;
+end
+# Send email
+Message.deliver
+
+Steps for   sending email to specific user
+1.Just click  on user email id
+2.go to manage your Google account
+3.just click on security   set 2 step verification
+4.after that search for app password in search bar.
+5.for creating app password
+  1.Just click on select app
+  2.Select use other location
+   From drop down box     
+  3.give the name as per ur
+      Requirement.
+  4 .generate password
+  5.copy the generated   
+      Password.
+6.open the text editor and paste the code  and  paste the app password  as we copied earlier also give sender  and receiver email id as ur wish
+7.after all of these steps just go to replit online editor
+  1.first we need to login into   
+      Editor.
+  2 .go to create replit and   
+       Select ruby and give title
+       Name as ur wish and
+       Click on  create replit.
+3.paste the  code  in replit
+4.just install the PKG like gem install mail.
+5.run the program through command like ruby main.rb
+
+
+
+
