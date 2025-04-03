@@ -1,0 +1,966 @@
+cd Downloads
+
+sudo chmod +x xampp-linux-x64-8.2.12-0-installer.run
+
+sudo ./xampp-linux-x64-8.2.12-0-installer.run
+
+Start apache server
+
+sudo service apache2 status
+sudo service apache2 stop
+
+GIve Privileges for the editing of the file
+
+sudo su
+chmod -R 777 //opt/lampp/htdocs
+
+Run a html file
+
+http://localhost/applications.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart India Hackathon</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="titl">
+        Smart India Hackathon
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+    </nav>
+    <!-- News Ticker Section -->
+<div class="news-ticker">
+    <div class="ticker-content">
+        <span>🚀 Registrations are open for Smart India Hackathon 2025! </span>
+        <span>💡 Submit your ideas to tackle real-world problems by 31st January 2025! </span>
+        <span>🏆 Exciting prizes and internship opportunities await! </span>
+        <span>📢 Stay tuned for the announcement of shortlisted teams! </span>
+    </div>
+</div>
+    <!-- Image Carousel Section -->
+    <div class="carousel">
+        <span>
+            <div class="carousel-images">
+                <img src="banner1.png" alt="Banner 1">
+                <img src="banner2.jpg" alt="Banner 2">
+                <img src="banner3.jpg" alt="Banner 3">
+                <img src="banner4.jpg" alt="Banner 4">
+            </div>
+        </span>
+
+    </div>
+assignment 1 
+website 
+
+index.html
+
+    <!-- Winners Table Section -->
+    <h2>Smart India Hackathon Winners</h2>
+    <div>
+        <table>
+            <tr>
+                <th>Institute</th>
+                <th>Ministry/Organization</th>
+                <th>Team ID</th>
+                <th>Team Name</th>
+                <th>Team Leader</th>
+                <th>Institute City</th>
+                <th>Institute State</th>
+            </tr>
+
+            <!-- Table data for the winners -->
+            <tr>
+                <td>Amal Jyothi College of Engineering</td>
+                <td>Ministry of AYUSH</td>
+                <td>SIH1556</td>
+                <td>SUPERNOVAZ</td>
+                <td>Padmaprabha T</td>
+                <td>Virudhunagar</td>
+                <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+                <td>Amal Jyothi College of Engineering</td>
+                <td>Ministry of Social Justice and Empowerment</td>
+                <td>SIH1578</td>
+                <td>RisingPhoenix076</td>
+                <td>KIRUTHIKA S</td>
+                <td>Kanchipuram</td>
+                <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+                <td>Amal Jyothi College of Engineering</td>
+                <td>Ministry of Social Justice and Empowerment</td>
+                <td>SIH1579</td>
+                <td>NIET Pulse Shifters</td>
+                <td>Sinthanaiselvan G</td>
+                <td>Coimbatore</td>
+                <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+                <td>Amal Jyothi College of Engineering</td>
+                <td>Ministry of Social Justice and Empowerment</td>
+                <td>SIH1580</td>
+                <td>TECHIE TACOS</td>
+                <td>HARSHA VARDHINI S V</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+                <td>Amal Jyothi College of Engineering</td>
+                <td>Ministry of Social Justice and Empowerment</td>
+                <td>SIH1581</td>
+                <td>Team Black</td>
+                <td>Abishek M</td>
+                <td>Coimbatore</td>
+                <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+                <td>Bhilai Institute of Technology, Durg Chhattisgarh</td>
+                <td>AICTE, MIC-Student Innovation</td>
+                <td>SIH1532</td>
+                <td>Data_Enhancer</td>
+                <td>Nalini Soni</td>
+                <td>Raipur</td>
+                <td>Chhattisgarh</td>
+            </tr>
+            <tr>
+                <td>Bhilai Institute of Technology, Durg Chhattisgarh</td>
+                <td>AICTE, MIC-Student Innovation</td>
+                <td>SIH1532</td>
+                <td>DREAM_EPIC</td>
+                <td>PRIYADHARSHINI S</td>
+                <td>Tiruchirappalli</td>
+                <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+                <td>Bhilai Institute of Technology, Durg Chhattisgarh</td>
+                <td>AICTE, MIC-Student Innovation</td>
+                <td>SIH1531</td>
+                <td>DEBUGGING EARTH</td>
+                <td>Harshit Borana</td>
+                <td>Udaipur</td>
+                <td>Rajasthan</td>
+            </tr>
+            <tr>
+                <td>Bhilai Institute of Technology, Durg Chhattisgarh</td>
+                <td>AICTE, MIC-Student Innovation</td>
+                <td>SIH1533</td>
+                <td>RANDOM</td>
+                <td>T ADHVIK VITHUN</td>
+                <td>Coimbatore</td>
+                <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+                <td>Bhilai Institute of Technology, Durg Chhattisgarh</td>
+                <td>AICTE, MIC-Student Innovation</td>
+                <td>SIH1534</td>
+                <td>Evibe_2024</td>
+                <td>Animesh Jain</td>
+                <td>Mumbai Suburban</td>
+                <td>Maharashtra</td>
+            </tr>
+        </table>
+    </div>
+
+        <!-- Line Section -->
+        <nav class="line">
+            <a>Smart India Hackathon 2024</a>
+        </nav>
+        <!-- Image Carousel Section -->
+        <div class="carousel">
+            <span>
+                <div class="carousel-images">
+                    <img src="banner4.jpg" alt="Banner 4">
+                    <img src="banner3.jpg" alt="Banner 3">
+                    <img src="banner2.jpg" alt="Banner 2">
+                    <img src="banner1.png" alt="Banner 1">
+
+                </div>
+            </span>
+    
+        </div>
+
+        <!-- Footer Section -->
+        <nav class="footer">
+            <a>Made by Payal</a>
+        </nav>
+</body>
+</html>
+
+index.css 
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light gray background */
+    color: #333; /* Dark gray text */
+}
+
+/* Header */
+.titl {
+    background-color: #f97304; /* Vibrant orange */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Navigation Bar */
+.nav {
+    background-color: #208d07ea; /* Dark orange-red */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgb(255, 255, 255);
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 15px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav a.active {
+    background-color: #dda859; /* Highlight active link */
+    color: black;
+}
+
+.nav a:hover {
+    background-color: #ffab40; /* Light orange */
+    color: black;
+}
+.footer {
+    background-color: #f97304; /* Dark orange-red */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px 1px 20px;
+    box-shadow: 0 2px 4px rgb(255, 255, 255);
+    color: white; /* Text color set to white */
+
+}
+/* News Ticker Styles */
+.news-ticker {
+    background-color: #000000; /* Dark orange-red background */
+    color: white; /* White text for contrast */
+    overflow: hidden; /* Hide overflow for smooth scrolling */
+    position: relative;
+    height: 40px; /* Height of the ticker */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: Poppins, sans-serif;
+}
+
+.ticker-content {
+    display: inline-block;
+    white-space: nowrap; /* Prevent text wrapping */
+    padding-left: 100%; /* Start ticker off-screen */
+    animation: scroll-left 30s linear infinite; /* Smooth scrolling animation */
+}
+
+.ticker-content span {
+    display: inline-block;
+    margin-right: 50px; /* Spacing between news items */
+}
+
+/* Animation for scrolling effect */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Testimonials Section */
+#testimonials {
+    padding: 40px 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+#testimonials h2 {
+    font-size: 28px;
+    color: #f97304;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    padding: 10px 110px 10px 11px;
+
+  
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 1s ease;
+    padding: 10px 11px 10px 11px;
+
+}
+
+.carousel-images img {
+    width: 25%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 100px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: #f97304; /* Vibrant orange */
+    color: white;
+    text-align: center;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+tr:hover td {
+    background-color: #ffecb3; /* Light yellow */
+}
+
+/* Footer */
+footer {
+    background-color: #333; /* Dark gray */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+.line{
+    background-color: #f97304; /* Dark orange-red */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px 1px 20px;
+    box-shadow: 0 2px 4px rgb(255, 255, 255);
+    color: white; /* Text color set to white */
+
+
+}
+
+register.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Smart India Hackathon</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="titl">
+        Smart India Hackathon
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="register.html" class="active">Register</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="title">Register for Smart India Hackathon</h1>
+        <h2 class="subtitle">Join us and make an impact!</h2>
+
+        <!-- Registration Form -->
+        <form class="register-form" action="submit" method="post">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="college">College Name</label>
+                <input type="text" id="college" name="college" placeholder="Enter your college name" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                    <option value="">Select your state</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="team">Team Name</label>
+                <input type="text" id="team" name="team" placeholder="Enter your team name" required>
+            </div>
+            <div class="form-group">
+                <label for="team-members">Number of Team Members</label>
+                <select id="team-members" name="team-members" required>
+                    <option value="">Select number of team members</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="problem-statement">Problem Statement ID</label>
+                <input type="text" id="problem-statement" name="problem-statement" placeholder="Enter problem statement ID" required>
+            </div>
+            <div class="form-group">
+                <label for="problem-statement-edition">Problem Statement Edition</label><br>
+                <span>                <input type="radio" id="software" name="edition" value="Software" required>
+                    <label for="software">Software</label><br>
+                    <input type="radio" id="hardware" name="edition" value="Hardware" required>
+                    <label for="hardware">Hardware</label>
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Register</button>
+            </div>
+        </form>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="register.js"></script>
+</body>
+</html>
+
+register.css
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Style */
+.titl {
+    padding: 20px;
+    background-color: #f97304;
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Bar */
+.nav {
+    padding: 10px 20px;
+    background-color: #208d07ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav a {
+    margin: 0 15px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav a.active {
+    background-color: #ffcc80;
+    color: #333;
+}
+
+.nav a:hover {
+    background-color: #ffab40;
+    color: #333;
+}
+
+/* Container Style */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Title and Subtitle */
+.title {
+    text-align: center;
+    font-size: 32px;
+    color: #d84315;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Form Styles */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #d84315;
+    box-shadow: 0 0 6px rgba(216, 67, 21, 0.2);
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px 20px;
+    background-color: #d84315;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #bf360c;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    background-color: #9f2c0a;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+register.js 
+$(document).ready(function () {
+    $(".register-form").on("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        let isValid = true; // Flag to check overall validity
+
+        // Full Name Validation
+        const name = $("#name").val().trim();
+        if (name === "") {
+            alert("Full Name is required.");
+            isValid = false;
+        }
+
+        // Password Validation
+        const password = $("#password").val().trim();
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            isValid = false;
+        }
+
+        // Email Validation
+        const email = $("#email").val().trim();
+        if (email === "") {
+            alert("Email Address is required.");
+            isValid = false;
+        }
+
+        // Phone Number Validation
+        const phone = $("#phone").val().trim();
+        if (phone === "" || phone.length !== 10) {
+            alert("Phone Number must be 10 digits.");
+            isValid = false;
+        }
+
+        // College Name Validation
+        const college = $("#college").val().trim();
+        if (college === "") {
+            alert("College Name is required.");
+            isValid = false;
+        }
+
+        // State Validation
+        const state = $("#state").val();
+        if (state === "") {
+            alert("Please select your state.");
+            isValid = false;
+        }
+
+        // Team Name Validation
+        const team = $("#team").val().trim();
+        if (team === "") {
+            alert("Team Name is required.");
+            isValid = false;
+        }
+
+        // Team Members Validation
+        const teamMembers = $("#team-members").val();
+        if (teamMembers === "") {
+            alert("Please select the number of team members.");
+            isValid = false;
+        }
+
+        // Problem Statement ID Validation
+        const problemStatement = $("#problem-statement").val().trim();
+        if (problemStatement === "") {
+            alert("Problem Statement ID is required.");
+            isValid = false;
+        }
+
+        // Problem Statement Edition Validation
+        if (!$("input[name='edition']:checked").val()) {
+            alert("Please select a Problem Statement Edition (Software/Hardware).");
+            isValid = false;
+        }
+
+        // Final Check
+        if (isValid) {
+            alert("Submission Successful!");
+            $(".register-form")[0].reset(); // Clear the form
+        }
+    });
+});
+
+testimonial.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart India Hackathon Winners</title>
+    <link rel="stylesheet" href="testimonials.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="titl">
+        Smart India Hackathon Winners
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="about.html">About Us</a>
+        <a href="testimonials.html" class="active">Testimonials</a>
+    </nav>
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+    <h2>What Our Winners Say</h2>
+
+    <table>
+        <tr>
+            <th>Winner Name</th>
+            <th>Category</th>
+            <th>Feedback</th>
+        </tr>
+        <tr>
+            <td>Aryan Sharma</td>
+            <td>Software</td>
+            <td>The hackathon was a life-changing experience! It pushed me to think outside the box, collaborate with talented peers, and deliver a solution that was both innovative and impactful. Highly recommended for anyone passionate about technology!</td>
+        </tr>
+        <tr>
+            <td>Riya Patel</td>
+            <td>Hardware</td>
+            <td>Great opportunity to showcase our skills! The mentorship and resources provided were exceptional. I learned so much about real-world problem-solving and working under pressure. Truly a transformative journey.</td>
+        </tr>
+        <tr>
+            <td>Neha Verma</td>
+            <td>Innovations</td>
+            <td>Amazing platform for young innovators. The event not only allowed us to present our ideas but also provided us with constructive feedback from industry experts. It was a boost to our confidence and career prospects.</td>
+        </tr>
+        <tr>
+            <td>Siddharth Gupta</td>
+            <td>AI & Machine Learning</td>
+            <td>Participating in the hackathon was one of the best decisions I made. The exposure to cutting-edge technology and the opportunity to network with like-minded individuals was incredible. I also learned how to manage time and resources efficiently.</td>
+        </tr>
+        <tr>
+            <td>Priya Singh</td>
+            <td>Blockchain</td>
+            <td>The experience was phenomenal! It was exciting to tackle complex challenges and present our solutions to a panel of esteemed judges. I am grateful for the chance to grow both personally and professionally through this event.</td>
+        </tr>
+    </table>
+</section>
+    <!-- Footer -->
+    <footer>
+        <p>Smart India Hackathon &copy; 2025. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+testimonial.css
+/* General Styles */
+body {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333; 
+}
+
+/* Header */
+.titl {
+    background-color: #f97304; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+/* Navigation Bar */
+.nav {
+    background-color: #208d07ea; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 15px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav a.active {
+    background-color: #ffcc80; 
+    color: black;
+}
+
+.nav a:hover {
+    background-color: #ffab40; 
+    color: black;
+}
+
+#testimonials {
+    padding: 40px 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+#testimonials h2 {
+    font-size: 28px;
+    color: #d84315;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: #f97304; 
+    color: white;
+    text-align: center;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+tr:hover td {
+    background-color: #ffecb3;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+assignment 2 
+
